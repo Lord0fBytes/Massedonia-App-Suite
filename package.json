@@ -1,6 +1,6 @@
 {
   "name": "masd-app-suite",
-  "productName": "masd-app-suite",
+  "productName": "Massedonia App Suite",
   "version": "0.1.2",
   "description": "My Electron application description",
   "main": ".webpack/main",
