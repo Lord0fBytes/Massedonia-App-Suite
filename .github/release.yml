@@ -1,25 +1,20 @@
-> Description
-
-### Upgrade Steps
-* [ACTION REQUIRED]
-* 
-
-### 🚨 Breaking Changes
-* 
-* 
-
-### 🎉 New Features
-* 
-* 
-
-### 🐛 Bug Fixes
-* 
-* 
-
-### 📈 Performance Improvements
-* 
-* 
-
-### 🛠️ Other Changes
-* 
-* 
+changelog:
+  exclude:
+    labels:
+      - ignore-for-release
+  categories:
+    - title: 🚨 Breaking Changes
+      labels:
+        - breaking-change
+    - title: 🎉 New Features
+      labels:
+        - feature
+    - title: 🐛 Bug Fixes
+      labels:
+        - bug
+    - title: 🛠️ Maintenance
+      labels:
+        - chore
+    - title: Other Changes
+      labels:
+        - "*"
