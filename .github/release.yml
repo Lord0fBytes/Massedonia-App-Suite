@@ -8,7 +8,8 @@ changelog:
         - breaking-change
     - title: 🎉 New Features
       labels:
-        - enchancement
+        - enhancement
+        - feature
     - title: 🐛 Bug Fixes
       labels:
         - bug
