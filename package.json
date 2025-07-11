@@ -1,37 +1,49 @@
 {
-  "name": "masd-app-suite",
-  "productName": "Massedonia App Suite",
-  "version": "0.2.0",
-  "description": "My Electron application description",
-  "main": ".webpack/main",
+  "name": "massedonia-app-suite",
+  "version": "0.4.0",
+  "description": "A place for self hosted apps",
+  "main": "src/main.js",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
-    "lint": "echo \"No linting configured\""
+    "lint": "eslint src/"
   },
-  "keywords": [],
-  "author": "Justin Masse",
-  "license": "MIT",
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "icon": "src/assets/icon"
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "MassedoniaAppSuite"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": ["darwin"]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  },
   "devDependencies": {
-    "@electron-forge/cli": "^7.8.1",
-    "@electron-forge/maker-deb": "^7.8.1",
-    "@electron-forge/maker-dmg": "^7.8.1",
-    "@electron-forge/maker-rpm": "^7.8.1",
-    "@electron-forge/maker-squirrel": "^7.8.1",
-    "@electron-forge/maker-zip": "^7.8.1",
-    "@electron-forge/plugin-auto-unpack-natives": "^7.8.1",
-    "@electron-forge/plugin-fuses": "^7.8.1",
-    "@electron-forge/plugin-webpack": "^7.8.1",
-    "@electron/fuses": "^1.8.0",
-    "@vercel/webpack-asset-relocator-loader": "^1.7.3",
-    "css-loader": "^6.11.0",
-    "electron": "37.2.0",
-    "node-loader": "^2.1.0",
-    "style-loader": "^3.3.4"
-  },
-  "dependencies": {
-    "electron-squirrel-startup": "^1.0.1"
+    "@electron-forge/cli": "^7.0.0",
+    "@electron-forge/maker-deb": "^7.0.0",
+    "@electron-forge/maker-rpm": "^7.0.0",
+    "@electron-forge/maker-squirrel": "^7.0.0",
+    "@electron-forge/maker-zip": "^7.0.0",
+    "electron": "^27.0.0",
+    "eslint": "^8.0.0"
   }
 }

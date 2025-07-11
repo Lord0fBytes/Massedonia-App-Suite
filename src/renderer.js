@@ -1,20 +1,13 @@
-let currentActiveButton = null;
+let currentActive = null;
 
 function loadPage(url, button) {
-  document.getElementById('content').src = url;
-
-  if (currentActiveButton) {
-    currentActiveButton.classList.remove('active');
-  }
-
+  window.electronAPI.loadURL(url);
+  if (currentActive) currentActive.classList.remove('active');
   button.classList.add('active');
-  currentActiveButton = button;
+  currentActive = button;
 }
 
-// Auto-load the first button
 window.addEventListener('DOMContentLoaded', () => {
-  const firstButton = document.querySelector('#sidebar button');
-  if (firstButton) {
-    firstButton.click();
-  }
+  const first = document.querySelector('#sidebar button');
+  if (first) first.click();
 });

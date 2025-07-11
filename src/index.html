@@ -2,75 +2,34 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Massedonia App Suite</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      display: flex;
-      height: 100vh;
-    }
-    #sidebar {
-    width: auto;
-    background-color: #2c3e50;
-    color: white;
-    padding: 0px;
-    display: flex;
-    flex-direction: column;
-    }
-
-    #sidebar button {
-    width: 100%;             /* Take full width of sidebar */
-    background: none;
-    border: none;
-    color: white;
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    font-size: 16px;
-    cursor: pointer;
-    text-align: left;
-    box-sizing: border-box;
-    }
-
-    #sidebar button i {
-    font-size: 24px;         /* Larger icon */
-    width: 30px;             /* Fixed width to align text */
-    text-align: center;
-    }
-
-    #sidebar button span {
-    flex-grow: 1;
-    margin-left: 10px;
-    }
-
-    #sidebar button.active {
-    background-color: #1abc9c; /* Highlight color */
-    color: white;
-    }
-
-
-    #content {
-      flex-grow: 1;
-      border: none;
-    }
-  </style>
-
+  <title>MassEdonia App Suite</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body { margin:0; display:flex; height:100vh; }
+    #sidebar {
+      width:100px;
+      background:#2c3e50;
+      color:white;
+      display:flex;
+      flex-direction:column;
+    }
+    #sidebar button {
+      background:none;
+      border:none;
+      color:white;
+      padding:20px;
+      cursor:pointer;
+      font-size:20px;
+    }
+    #sidebar button.active { background-color:#1abc9c; }
+  </style>
 </head>
 <body>
   <div id="sidebar">
-  <button onclick="loadPage('https://immich.masd.cloud', this)" title="Photos">
-    <i class="fas fa-images"></i>
-  </button>
-  <button onclick="loadPage('http://10.0.0.10:3010', this)" title="Notes">
-    <i class="fas fa-book"></i>
-  </button>
-  <button onclick="loadPage('http://10.0.0.18:8081',this)" title="File Browser">
-    <i class="fas fa-search"></i>
-  </button>
-</div>
-  <iframe id="content"></iframe>
+    <button onclick="loadPage('https://immich.masd.cloud', this)" title="Photos"><i class="fas fa-images"></i></button>
+    <button onclick="loadPage('http://10.0.0.10:3010', this)" title="Notes"><i class="fas fa-book"></i></button>
+    <button onclick="loadPage('http://10.0.0.18:8081', this)" title="Files"><i class="fas fa-search"></i></button>
+  </div>
   <script src="./renderer.js"></script>
 </body>
 </html>
