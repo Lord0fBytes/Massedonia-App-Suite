@@ -8,11 +8,12 @@ function createWindow() {
     width: 1200,
     height: 800,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
+      preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
     },
   });
 
-  mainWindow.loadFile(path.join(__dirname, 'index.html'));
+  //mainWindow.loadFile(path.join(__dirname, 'index.html'));
+  mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
 
   view = new WebContentsView();
   mainWindow.contentView.addChildView(view);
@@ -29,7 +30,8 @@ function createWindow() {
   //view.setAutoResize({ width: true, height: true });
   view.webContents.loadURL('https://immich.masd.cloud');
   view.webContents.on('did-fail-load', () => {
-    view.webContents.loadFile(path.join(__dirname, 'error.html'));
+    const errorPath = path.join(__dirname, 'error.html');
+    view.webContents.loadFile(errorPath);
   });
 }
 

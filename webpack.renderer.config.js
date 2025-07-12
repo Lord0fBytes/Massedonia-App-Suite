@@ -1,13 +1,29 @@
-const rules = require('./webpack.rules');
-
-rules.push({
-  test: /\.css$/,
-  use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
-});
+const path = require('path');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  // Put your normal webpack config below here
+  mode: 'development',
+  entry: './src/renderer.js',
   module: {
-    rules,
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
   },
+  resolve: {
+    extensions: ['.js'],
+  },
+  plugins: [
+    // Copies error.html to the Webpack output directory
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, 'public'),
+          to: path.resolve(__dirname, '.webpack/main'),
+        },
+      ],
+    }),
+  ],
 };

@@ -15,12 +15,12 @@ module.exports = {
         setupIcon: path.resolve(__dirname, 'assets/icons/masd-app-suite-icon.ico'),
       },
     },
-    {
+    /*{
       name: '@electron-forge/maker-dmg',
       config: {
         icon: path.resolve(__dirname, 'assets/icons/masd-app-suite-icns.icns'),
       },
-    },
+    },*/
     {
       name: '@electron-forge/maker-zip',
       platforms: ['darwin','win32'],
