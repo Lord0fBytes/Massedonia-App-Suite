@@ -11,7 +11,9 @@ module.exports = {
   makers: [
     {
       name: '@electron-forge/maker-squirrel',
+      platforms: ['win32'], // 🎯 Only build for Windows 
       config: {
+        arch: 'x64', // Only for 64 bit windows
         setupIcon: path.resolve(__dirname, 'assets/icons/masd-app-suite-icon.ico'),
       },
     },

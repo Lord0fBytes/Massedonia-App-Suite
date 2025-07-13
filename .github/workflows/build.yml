@@ -1,0 +1,54 @@
+name: Build Electron App
+
+on:
+  push:
+    tags:
+      - 'v*'  # Only build on version tags like v1.0.0
+  workflow_dispatch:  # Allows manual build
+
+jobs:
+  build-windows:
+    name: Windows (.exe)
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Make Windows Build
+        run: npm run make
+
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: windows-build
+          path: out/make
+
+  build-macos:
+    name: macOS (.dmg/.zip)
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Make Mac Build
+        run: npm run make
+
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: macos-build
+          path: out/make
