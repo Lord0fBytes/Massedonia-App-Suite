@@ -25,7 +25,7 @@ jobs:
         run: npm run make
 
       - name: Upload Build Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: windows-build
           path: out/make
@@ -48,7 +48,7 @@ jobs:
         run: npm run make
 
       - name: Upload Build Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: macos-build
           path: out/make
